@@ -224,4 +224,4 @@ Cloud-SOC-AWS-Capstone/
 **Farhana Ahmed**
 Cybersecurity Graduate – Centennial College
 
-GitHub: https://github.com/Farhana330/Cloud-SOC-AWS-Capstone
+GitHub: https://github.com/Farhana330/cloud-soc-incident-response-aws
