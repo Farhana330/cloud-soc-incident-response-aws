@@ -136,7 +136,7 @@ Automated response is implemented using AWS Lambda and EventBridge to quickly co
 
   # Detection Evidence
 
-![SSH Brute Force Alarm](screenshots/ssh-bruteforce-cloudwatch-alarm.png)
+![SSH Brute Force Alarm](screenshots/ssh-bruteforce/ssh-bruteforce-cloudwatch-alarm.png)
 
 ---
 
