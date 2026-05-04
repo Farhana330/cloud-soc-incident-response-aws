@@ -216,7 +216,6 @@ cloud-soc-incident-response-aws/
 ├── commands/
 ├── report/
 └── README.md
-
 ---
 
 ## Author
@@ -224,4 +223,4 @@ cloud-soc-incident-response-aws/
 **Farhana Ahmed**
 Cybersecurity Graduate – Centennial College
 
-GitHub: https://github.com/Farhana330/cloud-soc-incident-response-aws
+ GitHub: https://github.com/Farhana330/cloud-soc-incident-response-aws
