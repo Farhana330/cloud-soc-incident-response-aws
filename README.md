@@ -208,6 +208,7 @@ Screenshots available in the `screenshots/` folder include:
 
 ## Project Structure
 
+```text
 cloud-soc-incident-response-aws/
 
 ├── architecture/
@@ -217,6 +218,8 @@ cloud-soc-incident-response-aws/
 ├── commands/
 ├── report/
 └── README.md
+```
+
 ---
 
 ## Author
