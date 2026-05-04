@@ -4,34 +4,35 @@
 
 A cloud-native Security Operations Center (SOC) built using AWS to detect, analyze, and respond to real-time security threats without relying on traditional SIEM solutions.
 
-![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
-![Security](https://img.shields.io/badge/SOC-Detection-blue)
-![Status](https://img.shields.io/badge/Project-Completed-green)
 
 ---
 
 ## Project Overview
 
-This project demonstrates the design and implementation of a cloud-based Security Operations Center (SOC) using AWS native services. The system provides centralized logging, real-time detection, alerting, and incident response across multiple layers of the cloud environment.
+This project demonstrates how AWS native services can be integrated to build a lightweight SOC capable of multi-layer threat detection and automated incident response.
+
+The system collects logs from API, network, and host levels, analyzes them using Amazon CloudWatch, and triggers alerts and response actions through AWS Lambda and EventBridge.
 
 ---
 
-## Objective
+## Key Features
 
-The objective of this project is to build a practical and cost-effective SOC environment in AWS that can:
-
-* Monitor logs from multiple sources
-* Detect suspicious activities
-* Generate real-time alerts
-* Support both automated and manual incident response
+- Multi-layer detection (API, Network, Host)
+- Real-time alerting using CloudWatch and SNS
+- Automated incident response using AWS Lambda
+- Simulation of 7 real-world cyber attacks
+- Centralized logging across AWS services
+- NIST SP 800-61 based incident response workflow
 
 ---
 
 ## Architecture
 
-![AWS SOC Architecture](architecture/aws-cloud-soc-architecture.png)
+The architecture illustrates the end-to-end SOC pipeline from attack detection to response.
 
-The architecture follows a structured SOC pipeline where logs from multiple sources are collected, analyzed using CloudWatch, and used to trigger alerts and response actions. Automated responses are handled through AWS Lambda and EventBridge, while manual investigation is performed by the SOC analyst. This design follows a multi-layer security monitoring approach with both automated and manual response capabilities.
+Logs are collected from multiple AWS sources, processed using CloudWatch, and used to trigger alerts and automated remediation actions.
+
+![AWS SOC Architecture](architecture/aws-cloud-soc-architecture.png)
 
 ---
 
@@ -43,16 +44,16 @@ Attack → Log Collection → Detection (Metric Filters) → Alert (CloudWatch A
 
 ## AWS Services Used
 
-* Amazon EC2 (SOC Server)
-* Amazon VPC (Public Subnet)
-* AWS CloudTrail (API activity monitoring)
-* VPC Flow Logs (network traffic monitoring)
-* Amazon CloudWatch (log monitoring and alarms)
-* Amazon SNS (alert notifications)
-* AWS Lambda (automated response)
-* Amazon EventBridge (event-based trigger)
-* Amazon S3 (log storage and archival)
-* AWS IAM (access control)
+- Amazon EC2 (SOC Server)
+- Amazon VPC (Network Isolation)
+- AWS CloudTrail (API Activity Monitoring)
+- VPC Flow Logs (Network Traffic Monitoring)
+- Amazon CloudWatch (Log Monitoring & Alarms)
+- Amazon SNS (Alert Notifications)
+- AWS Lambda (Automated Response)
+- Amazon EventBridge (Event Triggering)
+- Amazon S3 (Log Storage & Archival)
+- AWS IAM (Access Control)
 
 ---
 
@@ -76,9 +77,9 @@ Attack → Log Collection → Detection (Metric Filters) → Alert (CloudWatch A
 
 ---
 
-## Multi-layer Detection
+## Multi-layer Detection Strategy
 
-This project implements a multi-layer detection strategy:
+This project uses a layered detection approach:
 
 * API Layer → AWS CloudTrail
 * Network Layer → VPC Flow Logs
@@ -90,132 +91,132 @@ This ensures comprehensive visibility across the cloud environment.
 
 ## Detection Mechanism
 
-* CloudWatch Log Groups store all logs
+- Logs are stored in CloudWatch Log Groups  
+- Metric Filters detect suspicious patterns such as:
 
-* Metric Filters identify suspicious patterns:
+  - `REJECT` → Blocked traffic  
+  - `REJECT AND TCP` → Port scanning  
+  - `Failed password` → SSH brute force  
+  - `AttachUserPolicy` → IAM misuse  
+  - `GetObject` → S3 data access  
 
-  * `REJECT` (blocked traffic)
-  * `REJECT AND TCP` (port scanning)
-  * `Failed password` (SSH brute force)
-  * `AttachUserPolicy` (IAM misuse)
-  * `GetObject` (S3 data access)
-
-* CloudWatch Alarms trigger alerts when thresholds are exceeded
+- CloudWatch Alarms trigger alerts when thresholds are exceeded  
 
 ---
 
 ## Alerting
 
-* Alerts are generated using Amazon SNS
-* Notifications are sent via:
+Alerts are generated using Amazon SNS:
 
-  * Email
-  * (Optional) SMS or integrations
+- Email notifications  
+- Optional SMS or integrations  
 
 ---
 
 ## Automated Response
 
-Automated response is implemented using AWS Lambda and EventBridge to contain threats in real time.
+Automated response is implemented using AWS Lambda and EventBridge to quickly contain threats.
 
-Example actions include:
+# Example Actions:
 
-* Removing insecure SSH rules (`0.0.0.0/0`)
-* Blocking malicious IP addresses
-* Updating security group configurations
+- Remove insecure SSH access (`0.0.0.0/0`)
+- Block malicious IP addresses
+- Update security group rules
 
-This demonstrates a static automated response approach based on predefined conditions.
+---
+
+## 🔍 Example: SSH Brute Force Detection
+
+- Logs collected from `/var/log/secure`
+- Metric filter detects `"Failed password"`
+- CloudWatch alarm triggers alert
+- Lambda automatically blocks attacker IP
+
+  This demonstrates real-time detection and automated containment.
+
+  # Detection Evidence
+
+![SSH Brute Force Alarm](screenshots/ssh-bruteforce-cloudwatch-alarm.png)
 
 ---
 
 ## Manual Response
 
-Manual incident response actions include:
+Manual actions include:
 
-* Revoking IAM permissions
-* Investigating suspicious API activity
-* Restricting S3 access
-* Performing validation and verification
-
+- Revoking IAM permissions  
+- Investigating suspicious API activity  
+- Restricting S3 access  
+- Performing validation and verification
+  
 ---
 
 ## Incident Response Framework
 
-Incident response follows:
+This project follows:
 
 **NIST SP 800-61 (Computer Security Incident Handling Guide)**
 
 Phases:
 
-* Preparation
-* Detection & Analysis
-* Containment
-* Eradication & Recovery
-* Post-Incident Activity
+1. Preparation  
+2. Detection & Analysis  
+3. Containment  
+4. Eradication & Recovery  
+5. Post-Incident Activity  
 
 ---
 
-## Highlights
+## Skills Demonstrated
 
-* Multi-layer detection (API, Network, Host)
-* Real-time alerting using CloudWatch and SNS
-* Automated response using Lambda and EventBridge
-* NIST-based incident response methodology
-* Practical simulation of real-world cloud attacks
+- AWS Cloud Security  
+- Security Monitoring & Log Analysis  
+- Incident Response (NIST Framework)  
+- Threat Detection using CloudWatch  
+- Automation using AWS Lambda & EventBridge  
 
 ---
 
 ## Sample Detection Evidence
 
-Refer to the `screenshots/` folder for:
+Screenshots available in the `screenshots/` folder include:
 
-* Attack simulation outputs
-* CloudWatch alarms
-* SNS alert notifications
-* Automated response validation
-
----
-
-## Key Features
-
-* Centralized logging across multiple AWS services
-* Real-time detection using CloudWatch
-* Alerting using SNS
-* Automated response using Lambda
-* Support for both automated and manual incident handling
-
+- Attack simulations  
+- CloudWatch alarms  
+- SNS alerts  
+- Automated response validation
+  
 ---
 
 ## Limitations
 
-* Automated response is static (predefined rules)
-* No dynamic attacker identification
-* No full SIEM integration
+- Automated response is rule-based (not adaptive)  
+- No full SIEM integration  
+- Limited advanced threat correlation  
 
 ---
 
 ## Future Improvements
 
-* Implement dynamic automated response
-* Integrate AWS GuardDuty
-* Add SIEM tools (Splunk / Microsoft Sentinel)
-* Use behavior-based detection
-* Implement automated response playbooks
+- Implement dynamic automated response  
+- Integrate AWS GuardDuty  
+- Add SIEM tools (Splunk / Microsoft Sentinel)  
+- Apply behavior-based anomaly detection  
+- Develop automated response playbooks  
 
 ---
 
 ## Project Structure
 
-```text
-Cloud-SOC-AWS-Capstone/
+cloud-soc-incident-response-aws/
 
 ├── architecture/
 ├── diagrams/
 ├── screenshots/
 ├── lambda-code/
 ├── commands/
-└── report/
-```
+├── report/
+└── README.md
 
 ---
 
