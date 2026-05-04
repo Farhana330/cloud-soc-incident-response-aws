@@ -209,10 +209,9 @@ Screenshots available in the `screenshots/` folder include:
 ## Project Structure
 
 ```text
-cloud-soc-incident-response-aws/
 
+cloud-soc-incident-response-aws/
 ├── architecture/
-├── diagrams/
 ├── screenshots/
 ├── lambda-code/
 ├── commands/
