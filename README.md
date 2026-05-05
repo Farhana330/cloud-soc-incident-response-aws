@@ -117,7 +117,7 @@ Alerts are generated using Amazon SNS:
 
 Automated response is implemented using AWS Lambda and EventBridge to quickly contain threats.
 
-See: [Lambda Function Code](automation/lambda/soc-auto-block.py)
+See: [Lambda Function Code](automation/lambda/security-group-auto-block.py)
 
 ### Example Actions
 
