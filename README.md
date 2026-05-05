@@ -117,7 +117,9 @@ Alerts are generated using Amazon SNS:
 
 Automated response is implemented using AWS Lambda and EventBridge to quickly contain threats.
 
-# Example Actions:
+See: [Lambda Function Code](automation/lambda/soc-auto-block.py)
+
+### Example Actions
 
 - Remove insecure SSH access (`0.0.0.0/0`)
 - Block malicious IP addresses
@@ -132,11 +134,13 @@ Automated response is implemented using AWS Lambda and EventBridge to quickly co
 - CloudWatch alarm triggers alert
 - Lambda automatically blocks attacker IP
 
-  This demonstrates real-time detection and automated containment.
+This demonstrates real-time detection and automated containment.
 
-  # Detection Evidence
+## Detection Evidence
 
 ![SSH Brute Force Alarm](screenshots/ssh-bruteforce/ssh-bruteforce-cloudwatch-alarm.png)
+
+This screenshot shows the CloudWatch alarm triggered when multiple failed SSH login attempts were detected, indicating a brute force attack.
 
 ---
 
