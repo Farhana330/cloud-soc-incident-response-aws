@@ -138,7 +138,7 @@ This demonstrates real-time detection and automated containment.
 
 ## Detection Evidence
 
-![SSH Brute Force Alarm](screenshots/ssh-bruteforce/ssh-bruteforce-cloudwatch-alarm.png)
+![SSH Brute Force Alarm](evidence/ssh-bruteforce/ssh-bruteforce-cloudwatch-alarm.png)
 
 This screenshot shows the CloudWatch alarm triggered when multiple failed SSH login attempts were detected, indicating a brute force attack.
 
