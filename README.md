@@ -20,7 +20,7 @@ The system collects logs from API, network, and host levels, analyzes them using
 - Multi-layer detection (API, Network, Host)
 - Real-time alerting using CloudWatch and SNS
 - Automated incident response using AWS Lambda
-- Simulation of 7 real-world cyber attacks
+- Simulation of real-world cyber attacks
 - Centralized logging across AWS services
 - NIST SP 800-61 based incident response workflow
 
